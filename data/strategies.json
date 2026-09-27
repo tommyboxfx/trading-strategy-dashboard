@@ -2,23 +2,157 @@
   "updated": "2026-09-27",
   "strategies": [
     {
-      "id": "example-breakout",
-      "name": "Example: London breakout",
-      "instrument": "EURUSD",
-      "timeframe": "M15",
-      "platform": "MT5",
-      "status": "idea",
-      "tags": ["example", "breakout"],
-      "summary": "Placeholder entry that shows the format. Replace or delete it.",
+      "id": "ny-open-liquidity-sweep",
+      "name": "NY Open Liquidity Sweep",
+      "instrument": "Multi / XAUUSD / US Indices",
+      "timeframe": "M1–M15",
+      "platform": "MT4 / MT5",
+      "status": "testing",
+      "priority": 1,
+      "style": "Scalping / Day Trade",
+      "tags": [
+        "sweep",
+        "NY Open",
+        "liquidity",
+        "MSS",
+        "ICT"
+      ],
+      "summary": "Liquidity sweep around the New York open, followed by LTF displacement/MSS confirmation and retracement entry.",
       "metrics": {
-        "period": "2024-01-01 .. 2024-12-31",
-        "net_profit": 0,
+        "period": "Backtest data pending",
+        "net_profit": null,
         "profit_factor": null,
         "win_rate_pct": null,
         "max_drawdown_pct": null,
-        "trades": 0
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
       },
-      "notes": "strategies/example-breakout.md",
+      "notes": "strategies/ny-open-liquidity-sweep.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "previous-daily-high-low-sweep",
+      "name": "Previous Daily High / Low Sweep",
+      "instrument": "Multi / XAUUSD / FX / Indices",
+      "timeframe": "M1–M15 entry / D1 level",
+      "platform": "MT4 / MT5",
+      "status": "testing",
+      "priority": 2,
+      "style": "Day Trade",
+      "tags": [
+        "PDH",
+        "PDL",
+        "sweep",
+        "HTF liquidity",
+        "MSS"
+      ],
+      "summary": "Sweep of Previous Daily High or Low, then LTF displacement/MSS and retracement entry.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/previous-daily-high-low-sweep.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "htf-liquidity-sweep",
+      "name": "HTF Liquidity Sweep",
+      "instrument": "Multi / XAUUSD / FX / Indices",
+      "timeframe": "M1–M15 entry / H1–W1 levels",
+      "platform": "MT4 / MT5",
+      "status": "testing",
+      "priority": 3,
+      "style": "Day Trade / Swing",
+      "tags": [
+        "HTF",
+        "PWH",
+        "PWL",
+        "H4",
+        "liquidity",
+        "sweep",
+        "MSS"
+      ],
+      "summary": "Higher-timeframe liquidity sweep family: previous weekly levels, H4/H1 swing highs/lows and confluence levels, confirmed on lower timeframe.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/htf-liquidity-sweep.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "session-high-low-sweep",
+      "name": "Asia / London Session High-Low Sweep",
+      "instrument": "Multi / XAUUSD / FX",
+      "timeframe": "M1–M15",
+      "platform": "MT4 / MT5",
+      "status": "testing",
+      "priority": 4,
+      "style": "Scalping / Day Trade",
+      "tags": [
+        "Asia",
+        "London",
+        "session",
+        "sweep",
+        "MSS"
+      ],
+      "summary": "Sweep of Asia or London session high/low with LTF structure shift confirmation.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/session-high-low-sweep.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "ict-confluence-sweep",
+      "name": "ICT Sweep + MSS + FVG / OB Confluence",
+      "instrument": "Multi",
+      "timeframe": "M1–M15 entry / HTF context",
+      "platform": "MT4 / MT5",
+      "status": "idea",
+      "priority": 5,
+      "style": "Scalping / Day Trade / Swing",
+      "tags": [
+        "ICT",
+        "sweep",
+        "MSS",
+        "FVG",
+        "Order Block",
+        "OTE",
+        "Killzone"
+      ],
+      "summary": "Research family combining liquidity sweep with displacement/MSS, then FVG or valid Order Block retracement and optional killzone/OTE/SMT filters.",
+      "metrics": {
+        "period": "Research / variants pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/ict-confluence-sweep.md",
       "updated": "2026-09-27"
     }
   ]
