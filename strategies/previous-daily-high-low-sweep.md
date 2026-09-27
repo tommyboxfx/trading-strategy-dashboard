@@ -15,3 +15,7 @@ Previous Daily High (PDH) and Previous Daily Low (PDL) are major daily liquidity
 
 ## Robustness splits
 Instrument, weekday, session, distance from daily open, sweep depth, HTF bias, news/no-news, costs and slippage.
+
+## External research to replicate
+
+- [Currency orders and exchange-rate dynamics](https://www.newyorkfed.org/research/staff_reports/sr125.html) and [stop-loss price cascades](https://www.newyorkfed.org/research/staff_reports/sr150.html) suggest testing both rejection and continuation after a level is crossed. They study FX order clustering, not specifically PDH/PDL or our EA.

@@ -17,3 +17,9 @@ Price frequently takes nearby liquidity around the New York open before the dire
 
 ## Metrics to record
 PF, Max DD, trades, win rate, average R/trade, net profit, recovery factor, tested years, costs/slippage, in-sample vs out-of-sample/forward results.
+
+## External research to replicate
+
+- [Opening range breakout on selected US equities](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4729284): compare a breakout baseline with our sweep-reversal logic on identical days.
+- [Pre-registered ORB cost study](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7428398): stress-test spreads, fees and slippage. Its reported conclusion differs from the selected-equity study; neither is our result.
+- [Market intraday momentum](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2440866): investigate whether the direction of the opening move affects the closing window on US500.

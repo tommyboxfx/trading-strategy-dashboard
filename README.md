@@ -12,6 +12,9 @@ The exact format and the rules for AI assistants are in [AGENTS.md](AGENTS.md).
 ## Research catalogue and score
 `data/patterns.json` contains the searchable Pattern Library. Patterns are research ideas,
 not backtested strategies. Elliott Wave is tracked separately in `strategies/elliott-wave-fibo-rsi.md`.
+`data/research.json` stores external papers with source links, the market studied,
+our proposed replication test and a transferability caveat. These are literature
+leads, not our own backtests or performance evidence for this dashboard.
 Every catalogue item has a stable `id` and a lifecycle `status` (`idea`, `testing`,
 `live`, `paused`, `retired`). `data/variants.json` holds concrete combinations and
 references a pattern by `pattern_id`. Keep metrics `null` until actual results exist.

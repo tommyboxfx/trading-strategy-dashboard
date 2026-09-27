@@ -1,0 +1,104 @@
+{
+  "updated": "2026-09-27",
+  "entries": [
+    {
+      "id": "opening-range-breakout",
+      "name": "NY opening range breakout",
+      "status": "research",
+      "market_in_paper": "US equities, 2016–2023",
+      "source_title": "A Profitable Day Trading Strategy For The U.S. Equity Market — Zarattini, Barbon, Aziz (2024)",
+      "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4729284",
+      "finding": "The authors study opening range breakouts on a large US stock sample and report favorable results for their selected stock-in-play approach.",
+      "our_test": "Compare first 5, 15 and 30 minute NY opening ranges on US100 and US500, with identical exits, spreads and slippage. Compare plain breakout with sweep-and-reversal on the same days.",
+      "caution": "Paper studies selected US shares; results cannot be transferred directly to index CFDs or our EAs."
+    },
+    {
+      "id": "orb-trading-costs",
+      "name": "Opening breakout: cost stress test",
+      "status": "research",
+      "market_in_paper": "Nine US futures markets; pre-registered rule grid",
+      "source_title": "Opening-Range Breakout Does Not Survive Trading Costs — Fetna (2026)",
+      "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7428398",
+      "finding": "This preprint reports that its tested ORB variants did not clear realistic trading costs.",
+      "our_test": "For every NY opening setup, compare ideal fills, observed spread plus commission, and a higher-slippage scenario; report both gross and net results.",
+      "caution": "Working paper; its market, entry and exit definitions differ from the other ORB study. Opposing results make a local test essential."
+    },
+    {
+      "id": "first-last-half-hour-momentum",
+      "name": "Opening move → closing move",
+      "status": "research",
+      "market_in_paper": "S&P 500 ETF, 1993–2013",
+      "source_title": "Market Intraday Momentum — Gao, Han, Li, Zhou (2017)",
+      "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2440866",
+      "finding": "The paper reports that the return from the prior close through the first half-hour predicts the last half-hour return in its sample.",
+      "our_test": "On US500, compare last-half-hour continuation conditional on the first-half-hour direction; then test whether a morning sweep strengthens or weakens the signal.",
+      "caution": "This is an intraday statistical relationship, not a verified M1/M5 entry or a result for current index CFD data."
+    },
+    {
+      "id": "formal-chart-patterns",
+      "name": "Mechanical pattern recognition",
+      "status": "research",
+      "market_in_paper": "US stocks, 1962–1996",
+      "source_title": "Foundations of Technical Analysis — Lo, Mamaysky, Wang (2000)",
+      "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=228099",
+      "finding": "The authors provide an algorithmic approach to recognizing chart patterns and assessing their informational content.",
+      "our_test": "Write pivot and tolerance rules for Double Top/Bottom and Head and Shoulders; compare pattern-only against PDL/PDH sweep plus MSS on the same data.",
+      "caution": "Pattern recognition method and historical US equities sample do not validate any particular FX, gold or index EA."
+    },
+    {
+      "id": "head-shoulders-predictive-power",
+      "name": "Head and Shoulders as a separate candidate",
+      "status": "research",
+      "market_in_paper": "US stocks",
+      "source_title": "Predictive Power of Head-and-Shoulders Price Patterns in the U.S. Stock Market — Journal of Financial Econometrics (2007)",
+      "source_url": "https://academic.oup.com/jfec/article-abstract/5/2/243/785044",
+      "finding": "This study examines predictive power using a modified algorithmic Head and Shoulders detector.",
+      "our_test": "Specify left/right shoulder tolerance, neckline break and invalidation, then test standalone and after HTF liquidity sweeps.",
+      "caution": "The publication studies stock returns and its detector; no performance number from the paper is assigned to our strategy."
+    },
+    {
+      "id": "fx-level-break-versus-reversal",
+      "name": "FX level: rejection or continuation?",
+      "status": "research",
+      "market_in_paper": "FX dealer orders and exchange rates",
+      "source_title": "Currency Orders and Exchange-Rate Dynamics — Carol Osler, New York Fed (2001; Journal of Finance 2003)",
+      "source_url": "https://www.newyorkfed.org/research/staff_reports/sr125.html",
+      "finding": "The study connects reversals at some support/resistance levels and acceleration after crosses with differing clusters of take-profit and stop-loss orders.",
+      "our_test": "At PDH/PDL and prior-week levels compare close-back-inside plus MSS against confirmed breakout continuation. Predefine level, penetration, time window and exit; compare on identical days.",
+      "caution": "Order data comes from one FX dealing bank. A prior-day high is not proof of actual resting orders or intentional stop hunting."
+    },
+    {
+      "id": "fx-stop-loss-cascades",
+      "name": "Stop-triggered cascade after a level break",
+      "status": "research",
+      "market_in_paper": "High-frequency FX and documented stop clusters",
+      "source_title": "Stop-Loss Orders and Price Cascades in Currency Markets — Carol Osler, New York Fed (2002; JIMF 2005)",
+      "source_url": "https://www.newyorkfed.org/research/staff_reports/sr150.html",
+      "finding": "The paper reports unusually rapid and persistent FX trends around documented stop-loss clusters.",
+      "our_test": "Split sweeps into immediate return below/above the level versus sustained displacement past the level; measure which behavior follows by session, volatility and distance penetrated.",
+      "caution": "The source supports a possible continuation mechanism; it does not establish a profitable ICT sweep-reversal rule."
+    },
+    {
+      "id": "fibonacci-zones",
+      "name": "Fibonacci zone versus matched random zone",
+      "status": "research",
+      "market_in_paper": "Three equity markets",
+      "source_title": "Automatic identification and evaluation of Fibonacci retracements — Tsinaslanidis et al. (2022)",
+      "source_url": "https://doi.org/10.1016/j.eswa.2021.115893",
+      "finding": "The authors study algorithmically identified Fibonacci support/resistance zones and compare their behavior in equity markets.",
+      "our_test": "For Elliott + Fibo EA, compare fixed retracement bands with equal-width control bands chosen without future data; hold wave identification, exits and costs constant.",
+      "caution": "An Elliott count plus Fibonacci entry is a different method; do not infer its profitability from an equity-market Fibonacci study."
+    },
+    {
+      "id": "elliott-pattern-detector",
+      "name": "Elliott wave detector with confirmed pivots",
+      "status": "research",
+      "market_in_paper": "Stock-market data; pattern detection study",
+      "source_title": "An algorithm for Elliott Waves pattern detection — Vantuch, Zelinka, Vasant (2018)",
+      "source_url": "https://journals.sagepub.com/doi/10.3233/IDT-170319",
+      "finding": "The paper develops and evaluates an algorithm to detect Elliott structures and study incomplete patterns.",
+      "our_test": "Specify the MultiZigZag confirmation lag and timestamp each newly confirmed wave. Compare EA entries made only after confirmation with any retrospective chart counts.",
+      "caution": "Reported pattern-recognition or direction accuracy does not equal tradable profit after costs. The ZigZag repaint question must be tested directly."
+    }
+  ]
+}

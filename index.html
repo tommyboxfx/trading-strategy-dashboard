@@ -60,6 +60,11 @@
   .library-card small { color: var(--muted); }
   .variant-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin-top: 12px; }
   .variant-list article { padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+  .research-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .research-list article { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .research-list h3 { margin: 0 0 8px; }
+  .research-list p { margin: 7px 0; }
+  .research-list a { color: var(--accent); overflow-wrap: anywhere; }
   .variant-list p { margin: 5px 0; font-size: 13px; }
   .library-controls { margin-bottom: 12px; }
   .library-controls input { width: 100%; }
@@ -97,6 +102,11 @@
     <h3>Test variants</h3>
     <p class="help">Separate hypotheses; each needs fixed entry and exit rules and its own backtest log. No results have been entered.</p>
     <div class="variant-list" id="variant-list"></div>
+  </section>
+  <section class="library" id="research">
+    <h2>External research / Külső kutatások</h2>
+    <p class="help">Published ideas to replicate. These findings are from other markets and periods; our own test results are still pending.</p>
+    <div class="research-list" id="research-list"></div>
   </section>
 </div>
 <script>
@@ -154,6 +164,22 @@ async function loadVariants() {
     variants = (await r.json()).variants || [];
     renderVariants();
   } catch(e) { document.getElementById('variant-list').innerHTML = `<p class="err">Could not load variants (${esc(e.message)}).</p>`; }
+}
+async function loadResearch() {
+  const box = document.getElementById('research-list');
+  try {
+    const r = await fetch('data/research.json?v=' + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    const entries = (await r.json()).entries || [];
+    box.innerHTML = entries.map(x => `<article>
+      <h3>${esc(x.name)}</h3><span class="tag">${esc(x.status)}</span>
+      <p><b>Paper:</b> <a href="${esc(x.source_url)}" target="_blank" rel="noopener noreferrer">${esc(x.source_title)}</a></p>
+      <p><b>Market / period:</b> ${esc(x.market_in_paper)}</p>
+      <p><b>Reported:</b> ${esc(x.finding)}</p>
+      <p><b>Our test idea:</b> ${esc(x.our_test)}</p>
+      <p class="muted">${esc(x.caution)}</p>
+    </article>`).join('');
+  } catch(e) { box.innerHTML = `<p class="err">Could not load research (${esc(e.message)}).</p>`; }
 }
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase();
@@ -220,6 +246,7 @@ document.getElementById("rows").addEventListener("click", e => { const tr = e.ta
 load();
 loadPatterns();
 loadVariants();
+loadResearch();
 </script>
 </body>
 </html>

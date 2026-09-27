@@ -11,6 +11,11 @@ The full searchable catalogue is in the **Pattern Library** section of the dashb
 
 First combination candidates: PDL sweep + Double Bottom + MSS; PDH sweep + Double Top + MSS; NY open + SFP; HTF sweep + Quasimodo.
 
+## External research to replicate
+
+- [Foundations of Technical Analysis](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=228099): use mechanical pattern detection instead of visual hindsight.
+- [Predictive Power of Head-and-Shoulders Price Patterns](https://academic.oup.com/jfec/article-abstract/5/2/243/785044): keep Head and Shoulders as its own detector and compare it with sweep-filtered variants. Neither source measures our setup.
+
 ## Backtest log
 
 | Date | Pattern / variant | Instrument / timeframe | Period | Trades | PF | Max DD | Avg R | OOS / forward | Notes |
