@@ -50,6 +50,15 @@
   #detail td, #detail th { white-space: normal; }
   #detail pre { overflow-x: auto; background: var(--bg); padding: 10px; border-radius: 8px; }
   .err { color: var(--neg); }
+  .help { font-size: 13px; color: var(--muted); margin: 8px 0 14px; }
+  .library { margin-top: 26px; }
+  .library-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .library-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .library-card h3 { margin: 0 0 8px; font-size: 15px; }
+  .library-card ul { margin: 0; padding-left: 20px; }
+  .library-card li { margin: 3px 0; }
+  .library-controls { margin-bottom: 12px; }
+  .library-controls input { width: 100%; }
 </style>
 </head>
 <body>
@@ -63,10 +72,11 @@
     <input id="q" type="search" placeholder="Search name, instrument, tag..." aria-label="Search">
     <select id="status" aria-label="Status filter"><option value="">All statuses</option></select>
   </div>
+  <p class="help">Priority = research order; score appears only after sufficient measured data. Sort by score where available. PF, drawdown and trade count alone do not prove a strategy works.</p>
   <div class="table">
     <table>
       <thead><tr>
-        <th>Strategy</th><th>Instrument</th><th>TF</th><th>Status</th>
+        <th>Strategy</th><th class="num">Priority</th><th class="num">Score</th><th>Instrument</th><th>TF</th><th>Status</th>
         <th class="num">Net</th><th class="num">PF</th><th class="num">Win %</th><th class="num">Max DD %</th>
         <th class="num">Trades</th><th>Period</th><th>Updated</th>
       </tr></thead>
@@ -74,6 +84,13 @@
     </table>
   </div>
   <section id="detail" aria-live="polite"></section>
+  <section class="library" id="pattern-library">
+    <h2>Pattern Library</h2>
+    <p class="help">Research catalogue. Each pattern can become a separate test variant; none has a performance rating yet. Elliott Wave is a separate strategy family above.</p>
+    <div class="library-controls"><input id="pattern-q" type="search" placeholder="Search patterns or group..." aria-label="Search patterns"></div>
+    <p class="muted" id="pattern-count"></p>
+    <div class="library-grid" id="pattern-groups"></div>
+  </section>
 </div>
 <script>
 const STATUS_ORDER = ["live", "testing", "idea", "paused", "retired"];
@@ -81,23 +98,56 @@ const fmt = (v, d = 2) => (v === null || v === undefined || v === "") ? "–" : 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const statusColor = s => `var(--st-${STATUS_ORDER.includes(s) ? s : "paused"})`;
 let all = [];
+let patternGroups = [];
+// Transparent provisional score, never computed for ideas or incomplete tests.
+// 40% PF, 30% drawdown, 20% average R, 10% trade-count confidence.
+function score(s) {
+  const m = s.metrics || {};
+  if (!['testing', 'live'].includes(s.status) || !Number.isFinite(m.profit_factor) ||
+      !Number.isFinite(m.max_drawdown_pct) || !Number.isFinite(m.avg_r) ||
+      !Number.isFinite(m.trades) || m.trades < 100 || m.max_drawdown_pct < 0) return null;
+  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+  return Math.round(40 * clamp((m.profit_factor - 1) / 1.5, 0, 1) +
+    30 * clamp((30 - m.max_drawdown_pct) / 25, 0, 1) +
+    20 * clamp(m.avg_r / .5, 0, 1) +
+    10 * clamp(m.trades / 500, 0, 1));
+}
+function renderPatterns() {
+  const q = document.getElementById('pattern-q').value.trim().toLowerCase();
+  let count = 0;
+  document.getElementById('pattern-groups').innerHTML = patternGroups.map(g => {
+    const names = g.patterns.filter(n => !q || n.toLowerCase().includes(q) || g.name.toLowerCase().includes(q));
+    count += names.length;
+    return names.length ? `<div class="library-card"><h3>${esc(g.name)} (${names.length})</h3><ul>${names.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : '';
+  }).join('') || '<p class="muted">No patterns match.</p>';
+  document.getElementById('pattern-count').textContent = `${count} patterns in ${patternGroups.filter(g => g.patterns.some(n => !q || n.toLowerCase().includes(q) || g.name.toLowerCase().includes(q))).length} groups`;
+}
+async function loadPatterns() {
+  try {
+    const r = await fetch('data/patterns.json?v=' + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    patternGroups = (await r.json()).groups || [];
+    renderPatterns();
+  } catch(e) { document.getElementById('pattern-groups').innerHTML = `<p class="err">Could not load pattern library (${esc(e.message)}).</p>`; }
+}
 
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase();
   const st = document.getElementById("status").value;
   const list = all.filter(s => (!st || s.status === st) &&
-    (!q || [s.name, s.instrument, s.timeframe, s.platform, ...(s.tags || [])].join(" ").toLowerCase().includes(q)));
+    (!q || [s.name, s.instrument, s.timeframe, s.platform, s.summary, ...(s.tags || [])].join(" ").toLowerCase().includes(q)));
   document.getElementById("rows").innerHTML = list.map(s => {
     const m = s.metrics || {};
     const net = typeof m.net_profit === "number" ? `<span class="${m.net_profit >= 0 ? "pos" : "neg"}">${fmt(m.net_profit)}</span>` : "–";
     return `<tr data-id="${esc(s.id)}">
       <td><b>${esc(s.name)}</b><br>${(s.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</td>
+      <td class="num">${fmt(s.priority, 0)}</td><td class="num">${fmt(score(s), 0)}</td>
       <td>${esc(s.instrument)}</td><td>${esc(s.timeframe)}</td>
       <td><span class="pill" style="background:${statusColor(s.status)}">${esc(s.status)}</span></td>
       <td class="num">${net}</td><td class="num">${fmt(m.profit_factor)}</td><td class="num">${fmt(m.win_rate_pct, 1)}</td>
       <td class="num">${fmt(m.max_drawdown_pct, 1)}</td><td class="num">${fmt(m.trades, 0)}</td>
       <td>${esc(m.period || "–")}</td><td>${esc(s.updated || "–")}</td></tr>`;
-  }).join("") || `<tr><td colspan="11" class="muted">No strategies match.</td></tr>`;
+  }).join("") || `<tr><td colspan="13" class="muted">No strategies match.</td></tr>`;
 }
 
 async function showDetail(id) {
@@ -123,7 +173,7 @@ async function load() {
     const r = await fetch("data/strategies.json?v=" + Date.now());
     const data = await r.json();
     all = (data.strategies || []).slice().sort((a, b) =>
-      STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || String(a.name).localeCompare(String(b.name)));
+      (score(b) ?? -1) - (score(a) ?? -1) || (a.priority ?? 999) - (b.priority ?? 999) || String(a.name).localeCompare(String(b.name)));
     document.getElementById("updated").textContent = data.updated ? `Updated ${data.updated}` : "";
     const counts = {};
     all.forEach(s => counts[s.status] = (counts[s.status] || 0) + 1);
@@ -135,14 +185,16 @@ async function load() {
     const hash = decodeURIComponent(location.hash.slice(1));
     if (hash) showDetail(hash);
   } catch (e) {
-    document.getElementById("rows").innerHTML = `<tr><td colspan="11" class="err">Could not load data/strategies.json: ${esc(e.message)}</td></tr>`;
+    document.getElementById("rows").innerHTML = `<tr><td colspan="13" class="err">Could not load data/strategies.json: ${esc(e.message)}</td></tr>`;
   }
 }
 
 document.getElementById("q").addEventListener("input", render);
 document.getElementById("status").addEventListener("change", render);
+document.getElementById("pattern-q").addEventListener("input", renderPatterns);
 document.getElementById("rows").addEventListener("click", e => { const tr = e.target.closest("tr[data-id]"); if (tr) showDetail(tr.dataset.id); });
 load();
+loadPatterns();
 </script>
 </body>
 </html>

@@ -9,4 +9,15 @@ in `strategies/`. Click a row on the page to open its note; `#<id>` in the URL l
 Edit `data/strategies.json` and `strategies/<id>.md` (GitHub web editor, ChatGPT/Codex, or git).
 The exact format and the rules for AI assistants are in [AGENTS.md](AGENTS.md).
 
+## Research catalogue and score
+`data/patterns.json` contains the searchable Pattern Library. Patterns are research ideas,
+not backtested strategies. Elliott Wave is tracked separately in `strategies/elliott-wave-fibo-rsi.md`.
+
+The dashboard sorts measured strategies by a provisional 0–100 score, then unscored
+ideas by research priority. A score requires status `testing` or `live`, at least 100
+trades, and numeric profit factor, maximum drawdown percentage and average R.
+Weights: PF 40, drawdown 30, average R 20, trade count 10. These are comparison
+weights, not proof of a trading edge. Leave missing metrics as `null`; record test
+period, costs and out-of-sample results in each strategy note.
+
 **This repository is public** - no account numbers, keys, tokens or private details.

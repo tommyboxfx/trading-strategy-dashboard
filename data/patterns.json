@@ -1,0 +1,14 @@
+{
+  "updated": "2026-09-27",
+  "groups": [
+    {"name":"Reversal","patterns":["Double Top","Double Bottom","Triple Top","Triple Bottom","Head and Shoulders","Inverse Head and Shoulders","Rounding Top","Rounding Bottom","V-Top","V-Bottom","Quasimodo (QM)","Diamond Top","Diamond Bottom"]},
+    {"name":"Continuation","patterns":["Bull Flag","Bear Flag","Bull Pennant","Bear Pennant","Rectangle","Ascending Channel","Descending Channel","Measured Move","Cup and Handle","Inverse Cup and Handle"]},
+    {"name":"Triangles","patterns":["Symmetrical Triangle","Ascending Triangle","Descending Triangle","Expanding / Broadening Triangle"]},
+    {"name":"Wedges","patterns":["Rising Wedge","Falling Wedge","Broadening Wedge"]},
+    {"name":"Breakout / Range","patterns":["Range Breakout","False Breakout / Fakeout","Breakout and Retest","Compression Breakout","Opening Range Breakout"]},
+    {"name":"Candlestick","patterns":["Pin Bar","Hammer","Inverted Hammer","Shooting Star","Hanging Man","Bullish Engulfing","Bearish Engulfing","Inside Bar","Outside Bar","Doji","Morning Star","Evening Star","Tweezer Top","Tweezer Bottom","Three White Soldiers","Three Black Crows"]},
+    {"name":"Harmonic","patterns":["Gartley","Bat","Butterfly","Crab","Deep Crab","Shark","Cypher","AB=CD","Three Drives"]},
+    {"name":"Price Action / Liquidity","patterns":["1-2-3 Reversal","Swing Failure Pattern (SFP)","Turtle Soup","Liquidity Sweep / Rejection","Failed Breakout","Judas Swing"]},
+    {"name":"Advanced Structures","patterns":["Wyckoff Spring","Wyckoff Upthrust / UTAD","Accumulation","Distribution","Wolfe Wave"]}
+  ]
+}

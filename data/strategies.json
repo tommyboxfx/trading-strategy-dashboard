@@ -154,6 +154,64 @@
       },
       "notes": "strategies/ict-confluence-sweep.md",
       "updated": "2026-09-27"
+    },
+    {
+      "id": "elliott-wave-fibo-rsi",
+      "name": "Elliott Wave + Fibonacci + RSI",
+      "instrument": "Multi",
+      "timeframe": "Multi",
+      "platform": "MT4 / MT5",
+      "status": "idea",
+      "priority": null,
+      "style": "Research",
+      "tags": [
+        "Elliott",
+        "ZigZag",
+        "Fibonacci",
+        "RSI"
+      ],
+      "summary": "ZigZag wave structure with Fibonacci retracement/extension and optional RSI confirmation; assess standalone and sweep-context variants.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/elliott-wave-fibo-rsi.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "pattern-research",
+      "name": "Pattern Research / Combination Lab",
+      "instrument": "Multi",
+      "timeframe": "Multi",
+      "platform": "MT4 / MT5",
+      "status": "idea",
+      "priority": null,
+      "style": "Research",
+      "tags": [
+        "patterns",
+        "price action",
+        "MSS",
+        "research"
+      ],
+      "summary": "Pattern catalogue and separately tested setups with session, liquidity sweep and MSS filters.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/pattern-research.md",
+      "updated": "2026-09-27"
     }
   ]
 }
