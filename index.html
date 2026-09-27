@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Strategy Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #1b1f24; --muted: #5d6673; --line: #e2e5ea;
+    --accent: #2f6fde; --pos: #1d8a4e; --neg: #c8372d;
+    --st-idea: #7a6ff0; --st-testing: #d68b00; --st-live: #1d8a4e; --st-paused: #6b7280; --st-retired: #9aa1ab;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1216; --panel: #171b21; --text: #e6e9ee; --muted: #9aa3b0; --line: #2a3039;
+      --accent: #6b9cff; --pos: #4cc285; --neg: #ff6b5e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 18px; }
+  h1 { font-size: 22px; margin: 0; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; min-width: 96px; }
+  .stat b { display: block; font-size: 20px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  input, select { font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line);
+                  border-radius: 8px; padding: 7px 10px; }
+  input { flex: 1 1 220px; }
+  .table { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 760px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+  tbody tr.sel { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+  .pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; }
+  .pos { color: var(--pos); } .neg { color: var(--neg); }
+  .tag { display: inline-block; font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 0 6px; margin-right: 4px; }
+  #detail { margin-top: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  #detail:empty { display: none; }
+  #detail h2 { margin-top: 0; }
+  #detail table { min-width: 0; }
+  #detail td, #detail th { white-space: normal; }
+  #detail pre { overflow-x: auto; background: var(--bg); padding: 10px; border-radius: 8px; }
+  .err { color: var(--neg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Trading Strategy Dashboard</h1>
+    <span class="muted" id="updated"></span>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search name, instrument, tag..." aria-label="Search">
+    <select id="status" aria-label="Status filter"><option value="">All statuses</option></select>
+  </div>
+  <div class="table">
+    <table>
+      <thead><tr>
+        <th>Strategy</th><th>Instrument</th><th>TF</th><th>Status</th>
+        <th class="num">Net</th><th class="num">PF</th><th class="num">Win %</th><th class="num">Max DD %</th>
+        <th class="num">Trades</th><th>Period</th><th>Updated</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <section id="detail" aria-live="polite"></section>
+</div>
+<script>
+const STATUS_ORDER = ["live", "testing", "idea", "paused", "retired"];
+const fmt = (v, d = 2) => (v === null || v === undefined || v === "") ? "–" : (typeof v === "number" ? v.toLocaleString(undefined, { maximumFractionDigits: d }) : String(v));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const statusColor = s => `var(--st-${STATUS_ORDER.includes(s) ? s : "paused"})`;
+let all = [];
+
+function render() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const st = document.getElementById("status").value;
+  const list = all.filter(s => (!st || s.status === st) &&
+    (!q || [s.name, s.instrument, s.timeframe, s.platform, ...(s.tags || [])].join(" ").toLowerCase().includes(q)));
+  document.getElementById("rows").innerHTML = list.map(s => {
+    const m = s.metrics || {};
+    const net = typeof m.net_profit === "number" ? `<span class="${m.net_profit >= 0 ? "pos" : "neg"}">${fmt(m.net_profit)}</span>` : "–";
+    return `<tr data-id="${esc(s.id)}">
+      <td><b>${esc(s.name)}</b><br>${(s.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</td>
+      <td>${esc(s.instrument)}</td><td>${esc(s.timeframe)}</td>
+      <td><span class="pill" style="background:${statusColor(s.status)}">${esc(s.status)}</span></td>
+      <td class="num">${net}</td><td class="num">${fmt(m.profit_factor)}</td><td class="num">${fmt(m.win_rate_pct, 1)}</td>
+      <td class="num">${fmt(m.max_drawdown_pct, 1)}</td><td class="num">${fmt(m.trades, 0)}</td>
+      <td>${esc(m.period || "–")}</td><td>${esc(s.updated || "–")}</td></tr>`;
+  }).join("") || `<tr><td colspan="11" class="muted">No strategies match.</td></tr>`;
+}
+
+async function showDetail(id) {
+  const s = all.find(x => x.id === id);
+  document.querySelectorAll("#rows tr").forEach(tr => tr.classList.toggle("sel", tr.dataset.id === id));
+  const box = document.getElementById("detail");
+  if (!s) { box.innerHTML = ""; return; }
+  let body = `<h2>${esc(s.name)}</h2><p>${esc(s.summary || "")}</p>`;
+  if (s.notes) {
+    try {
+      const r = await fetch(s.notes + "?v=" + Date.now());
+      if (!r.ok) throw new Error(r.status);
+      body = DOMPurify.sanitize(marked.parse(await r.text()));
+    } catch (e) { body += `<p class="err">Could not load ${esc(s.notes)} (${esc(e.message)}).</p>`; }
+  }
+  box.innerHTML = body;
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", "#" + encodeURIComponent(id));
+}
+
+async function load() {
+  try {
+    const r = await fetch("data/strategies.json?v=" + Date.now());
+    const data = await r.json();
+    all = (data.strategies || []).slice().sort((a, b) =>
+      STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || String(a.name).localeCompare(String(b.name)));
+    document.getElementById("updated").textContent = data.updated ? `Updated ${data.updated}` : "";
+    const counts = {};
+    all.forEach(s => counts[s.status] = (counts[s.status] || 0) + 1);
+    document.getElementById("stats").innerHTML = `<div class="stat"><span class="muted">Total</span><b>${all.length}</b></div>` +
+      STATUS_ORDER.filter(k => counts[k]).map(k => `<div class="stat"><span class="muted">${k}</span><b style="color:${statusColor(k)}">${counts[k]}</b></div>`).join("");
+    const sel = document.getElementById("status");
+    STATUS_ORDER.filter(k => counts[k]).forEach(k => sel.insertAdjacentHTML("beforeend", `<option value="${k}">${k}</option>`));
+    render();
+    const hash = decodeURIComponent(location.hash.slice(1));
+    if (hash) showDetail(hash);
+  } catch (e) {
+    document.getElementById("rows").innerHTML = `<tr><td colspan="11" class="err">Could not load data/strategies.json: ${esc(e.message)}</td></tr>`;
+  }
+}
+
+document.getElementById("q").addEventListener("input", render);
+document.getElementById("status").addEventListener("change", render);
+document.getElementById("rows").addEventListener("click", e => { const tr = e.target.closest("tr[data-id]"); if (tr) showDetail(tr.dataset.id); });
+load();
+</script>
+</body>
+</html>

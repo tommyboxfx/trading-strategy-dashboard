@@ -1,0 +1,25 @@
+{
+  "updated": "2026-09-27",
+  "strategies": [
+    {
+      "id": "example-breakout",
+      "name": "Example: London breakout",
+      "instrument": "EURUSD",
+      "timeframe": "M15",
+      "platform": "MT5",
+      "status": "idea",
+      "tags": ["example", "breakout"],
+      "summary": "Placeholder entry that shows the format. Replace or delete it.",
+      "metrics": {
+        "period": "2024-01-01 .. 2024-12-31",
+        "net_profit": 0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": 0
+      },
+      "notes": "strategies/example-breakout.md",
+      "updated": "2026-09-27"
+    }
+  ]
+}
