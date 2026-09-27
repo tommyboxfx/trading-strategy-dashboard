@@ -304,6 +304,42 @@
       "max_drawdown_pct": null,
       "avg_r": null,
       "oos": null
+    },
+    {
+      "id": "harlan-swing-poc-pullback",
+      "name": "Harlan: swing POC trend pullback",
+      "pattern_id": "trend-swing-poc-pullback",
+      "status": "idea",
+      "specification": "Bull trend: confirmed swing low→high FRVP and first POC pullback; bear trend: confirmed swing high→low FRVP. Enter only after predefined reaction; compare with ordinary pullback.",
+      "research_ids": [
+        "harlan-swing-poc"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "harlan-prior-day-profile",
+      "name": "Harlan: previous-day POC / VA reaction",
+      "pattern_id": "previous-session-poc-va-reaction",
+      "status": "idea",
+      "specification": "M15 fixed range profile from completed prior trading day, POC/VAH/VAL levels. First return and predefined rejection aligned with HTF bias; compare each level and no-bias baseline.",
+      "research_ids": [
+        "harlan-prior-day-profile"
+      ],
+      "instrument": null,
+      "timeframe": "M15 reference",
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
     }
   ]
 }

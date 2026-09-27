@@ -19,6 +19,14 @@
 
 TradingView részvényeknél kereskedési volument, index/forex/crypto CFD-nél tick volument, kriptónál base/quote volument használhat. Az MT5 broker volume-ja és a TradingView feedje eltérhet; XAUUSD, US100 és BTCUSD nem automatikusan ugyanazt a POC-t adja. A row size, value-area százalék, timeframe és időzóna legyen rögzítve. Ez adatdefiníció, nem önálló nyereségbizonyíték.
 
+## Harlan Sterling két videójából kinyert tesztötlet
+
+**1. [Swing POC pullback](https://www.youtube.com/watch?v=hQQI9DlhDRw):** a bemutató először a swing-struktúrából állapítja meg a trendirányt. Eső trendnél Fixed Range Volume Profile a legutóbbi swing hightól a swing lowig; az erre számított POC-hoz történő visszahúzódás és „tiszta reakció” után short. Emelkedő trendnél swing low→swing high profil, POC-visszahúzódás és long reakció. A videó nem definiálja számszerűen a swing megerősítését, a reakciót, stopot vagy célárat. Tesztben a profil végpontját és a jelzés legkorábbi idejét előre rögzítsük, hogy a később kialakult swing low/high ne szivárogjon vissza a múltbeli belépésbe.
+
+**2. [Előző napi profil](https://www.youtube.com/watch?v=Im26BW44IDg):** a bemutató TradingView M15 charton bekapcsolja a session break jelölést, majd Fixed Range Volume Profile-t húz az előző teljes kereskedési napra. A kész POC, VAL, VAH visszatesztjénél a nagyobb idősík irányával egyező reakciót keresi. A videó példát mutat, nem teljes mechanikus stratégiát. Előbb külön mérjük a POC/VAL/VAH szintet, majd a HTF bias hozzáadott értékét, azonos stop és kilépés mellett.
+
+**Forrásminőség:** oktató rövidvideók, saját tesztkimutatás nélkül. Az első videó végén elhangzó promóciós win-rate állítást nem tekintjük ellenőrzött eredménynek, ezért a dashboard eredménymezői üresek maradnak.
+
 ## Backtest log
 
 | Dátum | Variáns | Piac / profil | Időszak | Kötések | PF | Max DD | Avg R | OOS / forward | Megjegyzés |

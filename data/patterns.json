@@ -400,6 +400,21 @@
           "status": "idea"
         }
       ]
+    },
+    {
+      "name": "Volume Profile Setups",
+      "patterns": [
+        {
+          "id": "trend-swing-poc-pullback",
+          "name": "Trend Swing POC Pullback",
+          "status": "idea"
+        },
+        {
+          "id": "previous-session-poc-va-reaction",
+          "name": "Previous Session POC / VA Reaction",
+          "status": "idea"
+        }
+      ]
     }
   ]
 }

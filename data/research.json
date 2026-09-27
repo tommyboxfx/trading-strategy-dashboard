@@ -154,6 +154,28 @@
       "finding": "Az ár és RSI eltérő új csúcs/mélypontjai lehetséges momentumváltozást jeleznek; a TradingView nem javasolja a divergenciát egyedüli döntési alapnak.",
       "our_test": "Regular divergenciát azonos pivotparaméterrel, megerősítés után, POC/pivot szint és MSS szűrővel lépcsőzetesen összevetni.",
       "caution": "Indikátormagyarázat, nem a POC + RSI + pivot együttállás teljesítménymérése."
+    },
+    {
+      "id": "harlan-swing-poc",
+      "name": "Harlan Sterling: swing POC pullback",
+      "status": "research",
+      "market_in_paper": "TradingView creator demonstration; market and test sample unspecified",
+      "source_title": "Best way to use Volume Profile — Harlan Sterling (video)",
+      "source_url": "https://www.youtube.com/watch?v=hQQI9DlhDRw",
+      "finding": "Creator demonstrates bearish bias, fixed range profile from confirmed swing high to swing low, wait for return to POC and reaction before a short. Bullish case mirrors from swing low to high.",
+      "our_test": "Define trend and swing pivots without future data; anchor fixed range only after the swing completes; define reaction candle, stop and exit; compare with trend pullback without POC.",
+      "caution": "Educational short, not a published backtest. The clip does not specify stop, target, confirmation bar or sample size; promotional win-rate claim is not independently verified."
+    },
+    {
+      "id": "harlan-prior-day-profile",
+      "name": "Harlan Sterling: previous-day POC / VA",
+      "status": "research",
+      "market_in_paper": "TradingView creator demonstration; previous trading day on M15",
+      "source_title": "Understanding Volume Profile can Change Your Trading Career — Harlan Sterling (video)",
+      "source_url": "https://www.youtube.com/watch?v=Im26BW44IDg",
+      "finding": "Creator draws Fixed Range Volume Profile across the completed previous trading day on M15, marks POC/VAL/VAH, and looks for reactions aligned with a higher timeframe bias.",
+      "our_test": "With a fixed previous-day session, compare first POC/VAL/VAH touch plus defined rejection and HTF bias versus touch alone and continuation through the level.",
+      "caution": "Educational short with illustrative examples, no independently verified trade log. Market, timezone, risk and exact reaction trigger are unspecified."
     }
   ]
 }
