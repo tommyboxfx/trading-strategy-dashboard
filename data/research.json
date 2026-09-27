@@ -99,6 +99,61 @@
       "finding": "The paper develops and evaluates an algorithm to detect Elliott structures and study incomplete patterns.",
       "our_test": "Specify the MultiZigZag confirmation lag and timestamp each newly confirmed wave. Compare EA entries made only after confirmation with any retrospective chart counts.",
       "caution": "Reported pattern-recognition or direction accuracy does not equal tradable profit after costs. The ZigZag repaint question must be tested directly."
+    },
+    {
+      "id": "tv-pivot-formulas",
+      "name": "TradingView D/W/M pivot képletek és sessionadat",
+      "status": "research",
+      "market_in_paper": "TradingView pivot indikátor",
+      "source_title": "Pivot Points Standard — TradingView",
+      "source_url": "https://www.tradingview.com/support/solutions/43000521824-pivot-points-standard/",
+      "finding": "A Traditional, Fibonacci, Camarilla stb. eltérő képlet; heti és havi pivot az előző lezárt időszak adataiból épül. Az Auto TF és a daily-based adatok hatással lehetnek a szintekre.",
+      "our_test": "D/W/M Traditional szinteket külön mérni, majd az MT5 OHLC/session számítással egyeztetni.",
+      "caution": "Gyártói technikai dokumentáció, nem hozamot mérő kutatás."
+    },
+    {
+      "id": "pivot-fx-negative",
+      "name": "Pivot reakció vagy inverz áttörés",
+      "status": "research",
+      "market_in_paper": "Három FX devizapár",
+      "source_title": "Pivot Point Trading in the Foreign Exchange Market — Johnsson és Frykmer (2019, lund-i mesterszakos dolgozat)",
+      "source_url": "https://www.lunduniversity.lu.se/publication/8979805",
+      "finding": "A szerzők a hagyományos pivot predikcióra nem találtak általános támogatást; két párban inverz megközelítésnél jelentettek eredményt.",
+      "our_test": "Az S1/R1 elutasítást és az áttörést azonos adat/stop/költség mellett összevetni.",
+      "caution": "Mesterszakos vizsgálat, három FX pár; nem igazolja a mi D/W/M pivot-stratégiánkat."
+    },
+    {
+      "id": "tv-volume-profile",
+      "name": "Volume Profile POC és value area definíciók",
+      "status": "research",
+      "market_in_paper": "TradingView adatforrások és VP-típusok",
+      "source_title": "Volume profile indicators: basic concepts — TradingView",
+      "source_url": "https://www.tradingview.com/support/solutions/43000502040-volume-profile-indicators-basic-concepts/",
+      "finding": "A POC a profil legnagyobb forgalmú ársora; a VAH/VAL a választott értékterület széle, a HVN/LVN a profil lokális térfogata szerint értelmezhető.",
+      "our_test": "Az előző lezárt session POC/VA reakcióját, VA-visszatérést és áttörést külön mérni.",
+      "caution": "Definíció és példaötlet, nem validált eredmény; CFD-n a tick volume feedfüggő."
+    },
+    {
+      "id": "tv-visible-fixed-session-profile",
+      "name": "VP ablak: visible, fixed, session",
+      "status": "research",
+      "market_in_paper": "TradingView profilbeállítások",
+      "source_title": "Visible Range / Fixed Range / Session Volume Profile — TradingView",
+      "source_url": "https://www.tradingview.com/support/solutions/43000703076-visible-range-volume-profile/",
+      "finding": "A látható tartomány, a rögzített szakasz és a session eltérő POC-ot adhat; session VP-ben developing POC is megjeleníthető.",
+      "our_test": "Automata tesztnél előző lezárt session vagy rögzített végpontú profil; developing POC csak az addig ismert adatokkal.",
+      "caution": "A képernyőn utólag látható teljes profil nem használható korábbi belépéshez."
+    },
+    {
+      "id": "tv-rsi-divergence",
+      "name": "RSI divergencia: megerősítés és korlátok",
+      "status": "research",
+      "market_in_paper": "TradingView RSI dokumentáció",
+      "source_title": "RSI divergence indicator — TradingView",
+      "source_url": "https://www.tradingview.com/support/solutions/43000589127-rsi-divergence-indicator/",
+      "finding": "Az ár és RSI eltérő új csúcs/mélypontjai lehetséges momentumváltozást jeleznek; a TradingView nem javasolja a divergenciát egyedüli döntési alapnak.",
+      "our_test": "Regular divergenciát azonos pivotparaméterrel, megerősítés után, POC/pivot szint és MSS szűrővel lépcsőzetesen összevetni.",
+      "caution": "Indikátormagyarázat, nem a POC + RSI + pivot együttállás teljesítménymérése."
     }
   ]
 }

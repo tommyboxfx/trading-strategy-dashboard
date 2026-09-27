@@ -212,6 +212,99 @@
       },
       "notes": "strategies/pattern-research.md",
       "updated": "2026-09-27"
+    },
+    {
+      "id": "daily-weekly-monthly-pivots",
+      "name": "Daily / Weekly / Monthly Pivot Strategies",
+      "instrument": "XAUUSD / US indices / FX / BTCUSD",
+      "timeframe": "M5–M15 entry / D1–MN1 reference",
+      "platform": "TradingView / MT5",
+      "status": "idea",
+      "priority": null,
+      "style": "Intraday / Swing research",
+      "tags": [
+        "pivot",
+        "daily",
+        "weekly",
+        "monthly",
+        "S1",
+        "R1",
+        "confluence"
+      ],
+      "summary": "Traditional D/W/M pivots: rejection, sweep/reclaim, and confirmed break/retest; test each timeframe and level separately.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/daily-weekly-monthly-pivots.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "tradingview-volume-profile",
+      "name": "TradingView Volume Profile: POC / VAH / VAL / HVN / LVN",
+      "instrument": "XAUUSD / US indices / FX / BTCUSD",
+      "timeframe": "M5–M15 entry / D1–MN1 reference",
+      "platform": "TradingView / MT5",
+      "status": "idea",
+      "priority": null,
+      "style": "Intraday / Swing research",
+      "tags": [
+        "POC",
+        "VAH",
+        "VAL",
+        "HVN",
+        "LVN",
+        "Volume Profile"
+      ],
+      "summary": "Previous completed session POC and value area, fixed-range and anchored profiles: mean reversion versus value-area breakout candidates.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/tradingview-volume-profile.md",
+      "updated": "2026-09-27"
+    },
+    {
+      "id": "poc-rsi-pivot-confluence",
+      "name": "POC + RSI Divergence + Pivot Confluence",
+      "instrument": "XAUUSD / US indices / FX / BTCUSD",
+      "timeframe": "M5–M15 entry / D1–MN1 reference",
+      "platform": "TradingView / MT5",
+      "status": "idea",
+      "priority": null,
+      "style": "Intraday / Swing research",
+      "tags": [
+        "POC",
+        "RSI divergence",
+        "pivot",
+        "confluence",
+        "MSS"
+      ],
+      "summary": "Previous completed POC or value-area edge near a D/W/M pivot with confirmed RSI divergence and price action; compare each filter incrementally.",
+      "metrics": {
+        "period": "Backtest data pending",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/poc-rsi-pivot-confluence.md",
+      "updated": "2026-09-27"
     }
   ]
 }

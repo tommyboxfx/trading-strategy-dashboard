@@ -117,6 +117,193 @@
       "max_drawdown_pct": null,
       "avg_r": null,
       "oos": null
+    },
+    {
+      "id": "daily-s1-r1-rejection",
+      "name": "Napi S1/R1 elutasítás",
+      "pattern_id": "liquidity-sweep-rejection",
+      "status": "idea",
+      "specification": "Traditional D pivot; S1/R1 átszúrás és M5 visszazárás; az egyszerű érintéshez mérni.",
+      "research_ids": [
+        "tv-pivot-formulas",
+        "pivot-fx-negative"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "weekly-pivot-reclaim",
+      "name": "Heti P reclaim + retest",
+      "pattern_id": "breakout-and-retest",
+      "status": "idea",
+      "specification": "Heti Traditional P visszafoglalása és M15 retest; long/short és hétköznap szerint bontani.",
+      "research_ids": [
+        "tv-pivot-formulas"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "monthly-r1-s1-break",
+      "name": "Havi R1/S1 áttörés vagy fakeout",
+      "pattern_id": "false-breakout-fakeout",
+      "status": "idea",
+      "specification": "Előre rögzített átszúrás/zárás; folytatás vs visszafordulás ugyanazon napokon.",
+      "research_ids": [
+        "tv-pivot-formulas",
+        "pivot-fx-negative"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "daily-weekly-pivot-cluster",
+      "name": "Napi + heti pivot-szinttorlódás",
+      "pattern_id": "liquidity-sweep-rejection",
+      "status": "idea",
+      "specification": "Napi S1/R1 és heti P előre meghatározott ATR-távolságon belül; egyetlen szinthez viszonyítani.",
+      "research_ids": [
+        "tv-pivot-formulas"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "prior-session-poc-retest",
+      "name": "Előző session POC retest",
+      "pattern_id": "liquidity-sweep-rejection",
+      "status": "idea",
+      "specification": "Lezárt tegnapi SVP POC első érintés: elutasítás vs elfogadás, sessionbontással.",
+      "research_ids": [
+        "tv-volume-profile",
+        "tv-visible-fixed-session-profile"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "value-area-return-to-poc",
+      "name": "VAH/VAL visszatérés → POC",
+      "pattern_id": "range-breakout",
+      "status": "idea",
+      "specification": "Előző napi kész VAH/VAL áttörése után visszazárás az értékterületbe; POC mint lehetséges cél, más kilépéssel összevetve.",
+      "research_ids": [
+        "tv-volume-profile"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "value-area-breakout-retest",
+      "name": "VAH/VAL breakout + retest",
+      "pattern_id": "breakout-and-retest",
+      "status": "idea",
+      "specification": "Előző lezárt értékterület határának megerősített áttörése, retest és folytatás, külön NY open szűrővel.",
+      "research_ids": [
+        "tv-volume-profile"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "poc-rsi-pivot-confluence",
+      "name": "POC + RSI divergencia + pivot",
+      "pattern_id": "liquidity-sweep-rejection",
+      "status": "idea",
+      "specification": "Lezárt POC/VA és D/W/M pivot előre definiált ATR-távolságon belül; megerősített regular RSI divergencia, majd külön MSS szűrő.",
+      "research_ids": [
+        "tv-pivot-formulas",
+        "tv-volume-profile",
+        "tv-rsi-divergence"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "lvn-to-next-hvn",
+      "name": "LVN áthaladás → következő HVN",
+      "pattern_id": "compression-breakout",
+      "status": "idea",
+      "specification": "Előre lezárt fixed-range profil LVN áttörése; következő HVN mint cél, az LVN-nél elutasítás külön ellenvariáns.",
+      "research_ids": [
+        "tv-volume-profile",
+        "tv-visible-fixed-session-profile"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "ny-open-prior-value-area",
+      "name": "NY open a tegnapi value area fölött/alatt",
+      "pattern_id": "breakout-and-retest",
+      "status": "idea",
+      "specification": "Ha a nyitás az előző lezárt VAH fölött vagy VAL alatt történik: POC-ig visszahúzódás és folytatás vs azonnali trendfolytatás.",
+      "research_ids": [
+        "tv-volume-profile",
+        "tv-visible-fixed-session-profile"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
     }
   ]
 }
