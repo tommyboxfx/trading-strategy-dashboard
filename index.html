@@ -57,6 +57,10 @@
   .library-card h3 { margin: 0 0 8px; font-size: 15px; }
   .library-card ul { margin: 0; padding-left: 20px; }
   .library-card li { margin: 3px 0; }
+  .library-card small { color: var(--muted); }
+  .variant-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin-top: 12px; }
+  .variant-list article { padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+  .variant-list p { margin: 5px 0; font-size: 13px; }
   .library-controls { margin-bottom: 12px; }
   .library-controls input { width: 100%; }
 </style>
@@ -90,6 +94,9 @@
     <div class="library-controls"><input id="pattern-q" type="search" placeholder="Search patterns or group..." aria-label="Search patterns"></div>
     <p class="muted" id="pattern-count"></p>
     <div class="library-grid" id="pattern-groups"></div>
+    <h3>Test variants</h3>
+    <p class="help">Separate hypotheses; each needs fixed entry and exit rules and its own backtest log. No results have been entered.</p>
+    <div class="variant-list" id="variant-list"></div>
   </section>
 </div>
 <script>
@@ -99,6 +106,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const statusColor = s => `var(--st-${STATUS_ORDER.includes(s) ? s : "paused"})`;
 let all = [];
 let patternGroups = [];
+let variants = [];
 // Transparent provisional score, never computed for ideas or incomplete tests.
 // 40% PF, 30% drawdown, 20% average R, 10% trade-count confidence.
 function score(s) {
@@ -116,11 +124,11 @@ function renderPatterns() {
   const q = document.getElementById('pattern-q').value.trim().toLowerCase();
   let count = 0;
   document.getElementById('pattern-groups').innerHTML = patternGroups.map(g => {
-    const names = g.patterns.filter(n => !q || n.toLowerCase().includes(q) || g.name.toLowerCase().includes(q));
+    const names = g.patterns.filter(p => !q || p.name.toLowerCase().includes(q) || p.id.includes(q) || g.name.toLowerCase().includes(q));
     count += names.length;
-    return names.length ? `<div class="library-card"><h3>${esc(g.name)} (${names.length})</h3><ul>${names.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : '';
+    return names.length ? `<div class="library-card"><h3>${esc(g.name)} (${names.length})</h3><ul>${names.map(n => `<li>${esc(n.name)} <small>· ${esc(n.status)}</small></li>`).join('')}</ul></div>` : '';
   }).join('') || '<p class="muted">No patterns match.</p>';
-  document.getElementById('pattern-count').textContent = `${count} patterns in ${patternGroups.filter(g => g.patterns.some(n => !q || n.toLowerCase().includes(q) || g.name.toLowerCase().includes(q))).length} groups`;
+  document.getElementById('pattern-count').textContent = `${count} patterns in ${patternGroups.filter(g => g.patterns.some(p => !q || p.name.toLowerCase().includes(q) || p.id.includes(q) || g.name.toLowerCase().includes(q))).length} groups`;
 }
 async function loadPatterns() {
   try {
@@ -128,9 +136,25 @@ async function loadPatterns() {
     if (!r.ok) throw new Error(r.status);
     patternGroups = (await r.json()).groups || [];
     renderPatterns();
+    renderVariants();
   } catch(e) { document.getElementById('pattern-groups').innerHTML = `<p class="err">Could not load pattern library (${esc(e.message)}).</p>`; }
 }
 
+function renderVariants() {
+  const patterns = new Map(patternGroups.flatMap(g => g.patterns.map(p => [p.id, p])));
+  document.getElementById('variant-list').innerHTML = variants.map(v =>
+    `<article><b>${esc(v.name)}</b> <span class="tag">${esc(v.status)}</span>
+    <p>${esc(v.specification)}</p><small class="muted">Pattern: ${esc(patterns.get(v.pattern_id)?.name || v.pattern_id)} · Trades: ${fmt(v.trades, 0)} · PF: ${fmt(v.profit_factor)} · OOS: ${fmt(v.oos)}</small></article>`
+  ).join('') || '<p class="muted">No variants yet.</p>';
+}
+async function loadVariants() {
+  try {
+    const r = await fetch('data/variants.json?v=' + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    variants = (await r.json()).variants || [];
+    renderVariants();
+  } catch(e) { document.getElementById('variant-list').innerHTML = `<p class="err">Could not load variants (${esc(e.message)}).</p>`; }
+}
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase();
   const st = document.getElementById("status").value;
@@ -195,6 +219,7 @@ document.getElementById("pattern-q").addEventListener("input", renderPatterns);
 document.getElementById("rows").addEventListener("click", e => { const tr = e.target.closest("tr[data-id]"); if (tr) showDetail(tr.dataset.id); });
 load();
 loadPatterns();
+loadVariants();
 </script>
 </body>
 </html>

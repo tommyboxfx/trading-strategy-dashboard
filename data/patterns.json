@@ -1,14 +1,405 @@
 {
   "updated": "2026-09-27",
   "groups": [
-    {"name":"Reversal","patterns":["Double Top","Double Bottom","Triple Top","Triple Bottom","Head and Shoulders","Inverse Head and Shoulders","Rounding Top","Rounding Bottom","V-Top","V-Bottom","Quasimodo (QM)","Diamond Top","Diamond Bottom"]},
-    {"name":"Continuation","patterns":["Bull Flag","Bear Flag","Bull Pennant","Bear Pennant","Rectangle","Ascending Channel","Descending Channel","Measured Move","Cup and Handle","Inverse Cup and Handle"]},
-    {"name":"Triangles","patterns":["Symmetrical Triangle","Ascending Triangle","Descending Triangle","Expanding / Broadening Triangle"]},
-    {"name":"Wedges","patterns":["Rising Wedge","Falling Wedge","Broadening Wedge"]},
-    {"name":"Breakout / Range","patterns":["Range Breakout","False Breakout / Fakeout","Breakout and Retest","Compression Breakout","Opening Range Breakout"]},
-    {"name":"Candlestick","patterns":["Pin Bar","Hammer","Inverted Hammer","Shooting Star","Hanging Man","Bullish Engulfing","Bearish Engulfing","Inside Bar","Outside Bar","Doji","Morning Star","Evening Star","Tweezer Top","Tweezer Bottom","Three White Soldiers","Three Black Crows"]},
-    {"name":"Harmonic","patterns":["Gartley","Bat","Butterfly","Crab","Deep Crab","Shark","Cypher","AB=CD","Three Drives"]},
-    {"name":"Price Action / Liquidity","patterns":["1-2-3 Reversal","Swing Failure Pattern (SFP)","Turtle Soup","Liquidity Sweep / Rejection","Failed Breakout","Judas Swing"]},
-    {"name":"Advanced Structures","patterns":["Wyckoff Spring","Wyckoff Upthrust / UTAD","Accumulation","Distribution","Wolfe Wave"]}
+    {
+      "name": "Reversal",
+      "patterns": [
+        {
+          "id": "double-top",
+          "name": "Double Top",
+          "status": "idea"
+        },
+        {
+          "id": "double-bottom",
+          "name": "Double Bottom",
+          "status": "idea"
+        },
+        {
+          "id": "triple-top",
+          "name": "Triple Top",
+          "status": "idea"
+        },
+        {
+          "id": "triple-bottom",
+          "name": "Triple Bottom",
+          "status": "idea"
+        },
+        {
+          "id": "head-and-shoulders",
+          "name": "Head and Shoulders",
+          "status": "idea"
+        },
+        {
+          "id": "inverse-head-and-shoulders",
+          "name": "Inverse Head and Shoulders",
+          "status": "idea"
+        },
+        {
+          "id": "rounding-top",
+          "name": "Rounding Top",
+          "status": "idea"
+        },
+        {
+          "id": "rounding-bottom",
+          "name": "Rounding Bottom",
+          "status": "idea"
+        },
+        {
+          "id": "v-top",
+          "name": "V-Top",
+          "status": "idea"
+        },
+        {
+          "id": "v-bottom",
+          "name": "V-Bottom",
+          "status": "idea"
+        },
+        {
+          "id": "quasimodo-qm",
+          "name": "Quasimodo (QM)",
+          "status": "idea"
+        },
+        {
+          "id": "diamond-top",
+          "name": "Diamond Top",
+          "status": "idea"
+        },
+        {
+          "id": "diamond-bottom",
+          "name": "Diamond Bottom",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Continuation",
+      "patterns": [
+        {
+          "id": "bull-flag",
+          "name": "Bull Flag",
+          "status": "idea"
+        },
+        {
+          "id": "bear-flag",
+          "name": "Bear Flag",
+          "status": "idea"
+        },
+        {
+          "id": "bull-pennant",
+          "name": "Bull Pennant",
+          "status": "idea"
+        },
+        {
+          "id": "bear-pennant",
+          "name": "Bear Pennant",
+          "status": "idea"
+        },
+        {
+          "id": "rectangle",
+          "name": "Rectangle",
+          "status": "idea"
+        },
+        {
+          "id": "ascending-channel",
+          "name": "Ascending Channel",
+          "status": "idea"
+        },
+        {
+          "id": "descending-channel",
+          "name": "Descending Channel",
+          "status": "idea"
+        },
+        {
+          "id": "measured-move",
+          "name": "Measured Move",
+          "status": "idea"
+        },
+        {
+          "id": "cup-and-handle",
+          "name": "Cup and Handle",
+          "status": "idea"
+        },
+        {
+          "id": "inverse-cup-and-handle",
+          "name": "Inverse Cup and Handle",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Triangles",
+      "patterns": [
+        {
+          "id": "symmetrical-triangle",
+          "name": "Symmetrical Triangle",
+          "status": "idea"
+        },
+        {
+          "id": "ascending-triangle",
+          "name": "Ascending Triangle",
+          "status": "idea"
+        },
+        {
+          "id": "descending-triangle",
+          "name": "Descending Triangle",
+          "status": "idea"
+        },
+        {
+          "id": "expanding-broadening-triangle",
+          "name": "Expanding / Broadening Triangle",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Wedges",
+      "patterns": [
+        {
+          "id": "rising-wedge",
+          "name": "Rising Wedge",
+          "status": "idea"
+        },
+        {
+          "id": "falling-wedge",
+          "name": "Falling Wedge",
+          "status": "idea"
+        },
+        {
+          "id": "broadening-wedge",
+          "name": "Broadening Wedge",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Breakout / Range",
+      "patterns": [
+        {
+          "id": "range-breakout",
+          "name": "Range Breakout",
+          "status": "idea"
+        },
+        {
+          "id": "false-breakout-fakeout",
+          "name": "False Breakout / Fakeout",
+          "status": "idea"
+        },
+        {
+          "id": "breakout-and-retest",
+          "name": "Breakout and Retest",
+          "status": "idea"
+        },
+        {
+          "id": "compression-breakout",
+          "name": "Compression Breakout",
+          "status": "idea"
+        },
+        {
+          "id": "opening-range-breakout",
+          "name": "Opening Range Breakout",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Candlestick",
+      "patterns": [
+        {
+          "id": "pin-bar",
+          "name": "Pin Bar",
+          "status": "idea"
+        },
+        {
+          "id": "hammer",
+          "name": "Hammer",
+          "status": "idea"
+        },
+        {
+          "id": "inverted-hammer",
+          "name": "Inverted Hammer",
+          "status": "idea"
+        },
+        {
+          "id": "shooting-star",
+          "name": "Shooting Star",
+          "status": "idea"
+        },
+        {
+          "id": "hanging-man",
+          "name": "Hanging Man",
+          "status": "idea"
+        },
+        {
+          "id": "bullish-engulfing",
+          "name": "Bullish Engulfing",
+          "status": "idea"
+        },
+        {
+          "id": "bearish-engulfing",
+          "name": "Bearish Engulfing",
+          "status": "idea"
+        },
+        {
+          "id": "inside-bar",
+          "name": "Inside Bar",
+          "status": "idea"
+        },
+        {
+          "id": "outside-bar",
+          "name": "Outside Bar",
+          "status": "idea"
+        },
+        {
+          "id": "doji",
+          "name": "Doji",
+          "status": "idea"
+        },
+        {
+          "id": "morning-star",
+          "name": "Morning Star",
+          "status": "idea"
+        },
+        {
+          "id": "evening-star",
+          "name": "Evening Star",
+          "status": "idea"
+        },
+        {
+          "id": "tweezer-top",
+          "name": "Tweezer Top",
+          "status": "idea"
+        },
+        {
+          "id": "tweezer-bottom",
+          "name": "Tweezer Bottom",
+          "status": "idea"
+        },
+        {
+          "id": "three-white-soldiers",
+          "name": "Three White Soldiers",
+          "status": "idea"
+        },
+        {
+          "id": "three-black-crows",
+          "name": "Three Black Crows",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Harmonic",
+      "patterns": [
+        {
+          "id": "gartley",
+          "name": "Gartley",
+          "status": "idea"
+        },
+        {
+          "id": "bat",
+          "name": "Bat",
+          "status": "idea"
+        },
+        {
+          "id": "butterfly",
+          "name": "Butterfly",
+          "status": "idea"
+        },
+        {
+          "id": "crab",
+          "name": "Crab",
+          "status": "idea"
+        },
+        {
+          "id": "deep-crab",
+          "name": "Deep Crab",
+          "status": "idea"
+        },
+        {
+          "id": "shark",
+          "name": "Shark",
+          "status": "idea"
+        },
+        {
+          "id": "cypher",
+          "name": "Cypher",
+          "status": "idea"
+        },
+        {
+          "id": "ab-cd",
+          "name": "AB=CD",
+          "status": "idea"
+        },
+        {
+          "id": "three-drives",
+          "name": "Three Drives",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Price Action / Liquidity",
+      "patterns": [
+        {
+          "id": "1-2-3-reversal",
+          "name": "1-2-3 Reversal",
+          "status": "idea"
+        },
+        {
+          "id": "swing-failure-pattern-sfp",
+          "name": "Swing Failure Pattern (SFP)",
+          "status": "idea"
+        },
+        {
+          "id": "turtle-soup",
+          "name": "Turtle Soup",
+          "status": "idea"
+        },
+        {
+          "id": "liquidity-sweep-rejection",
+          "name": "Liquidity Sweep / Rejection",
+          "status": "idea"
+        },
+        {
+          "id": "failed-breakout",
+          "name": "Failed Breakout",
+          "status": "idea"
+        },
+        {
+          "id": "judas-swing",
+          "name": "Judas Swing",
+          "status": "idea"
+        }
+      ]
+    },
+    {
+      "name": "Advanced Structures",
+      "patterns": [
+        {
+          "id": "wyckoff-spring",
+          "name": "Wyckoff Spring",
+          "status": "idea"
+        },
+        {
+          "id": "wyckoff-upthrust-utad",
+          "name": "Wyckoff Upthrust / UTAD",
+          "status": "idea"
+        },
+        {
+          "id": "accumulation",
+          "name": "Accumulation",
+          "status": "idea"
+        },
+        {
+          "id": "distribution",
+          "name": "Distribution",
+          "status": "idea"
+        },
+        {
+          "id": "wolfe-wave",
+          "name": "Wolfe Wave",
+          "status": "idea"
+        }
+      ]
+    }
   ]
 }

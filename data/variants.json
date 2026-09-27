@@ -1,0 +1,65 @@
+{
+  "updated": "2026-09-27",
+  "variants": [
+    {
+      "id": "pdl-double-bottom-mss",
+      "name": "PDL sweep + Double Bottom + MSS",
+      "pattern_id": "double-bottom",
+      "status": "idea",
+      "specification": "Previous daily low sweep; confirm Double Bottom and bullish MSS; define pivot/confirmation and entry before test.",
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "pdh-double-top-mss",
+      "name": "PDH sweep + Double Top + MSS",
+      "pattern_id": "double-top",
+      "status": "idea",
+      "specification": "Previous daily high sweep; confirm Double Top and bearish MSS; define pivot/confirmation and entry before test.",
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "ny-open-sfp",
+      "name": "NY Open + Swing Failure Pattern",
+      "pattern_id": "swing-failure-pattern-sfp",
+      "status": "idea",
+      "specification": "NY open window; liquidity grab and close back inside level; define time zone and exact trigger before test.",
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "htf-sweep-quasimodo",
+      "name": "HTF sweep + Quasimodo",
+      "pattern_id": "quasimodo-qm",
+      "status": "idea",
+      "specification": "Higher-timeframe level sweep followed by Quasimodo structure; fix pivot and invalidation rules before test.",
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    }
+  ]
+}
