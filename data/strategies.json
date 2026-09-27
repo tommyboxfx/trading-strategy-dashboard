@@ -305,6 +305,35 @@
       },
       "notes": "strategies/poc-rsi-pivot-confluence.md",
       "updated": "2026-09-27"
+    },
+    {
+      "id": "den-lastorangepuma-indicator-suite",
+      "name": "Den / LastOrangePuma — 8LIQ indicator setup",
+      "instrument": "To be confirmed",
+      "timeframe": "To be confirmed",
+      "platform": "TradingView",
+      "status": "idea",
+      "priority": null,
+      "style": "Indicator-based research",
+      "tags": [
+        "LastOrangePuma",
+        "8LIW/Div",
+        "8LIQ/Golden Pocket",
+        "8LIQ/PVP POC"
+      ],
+      "summary": "User-identified three-indicator setup. Exact signal sequence, risk rules, script descriptions and performance are not yet verified.",
+      "metrics": {
+        "period": "No backtest supplied",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/den-lastorangepuma-indicator-suite.md",
+      "updated": "2026-09-27"
     }
   ]
 }
