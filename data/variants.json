@@ -60,6 +60,63 @@
       "max_drawdown_pct": null,
       "avg_r": null,
       "oos": null
+    },
+    {
+      "id": "ny-orb-5m",
+      "name": "NY opening range breakout: 5 minutes",
+      "pattern_id": "opening-range-breakout",
+      "status": "idea",
+      "specification": "Define the 09:30–09:35 America/New_York high/low; trade only confirmed break; predefine stop, exit and fees; compare with 15/30-minute ranges.",
+      "research_ids": [
+        "opening-range-breakout",
+        "orb-trading-costs"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "pdh-breakout-continuation",
+      "name": "PDH cross + continuation",
+      "pattern_id": "breakout-and-retest",
+      "status": "idea",
+      "specification": "Compare sustained close beyond prior-day high followed by retest with the sweep-reversal rule on identical dates and instrument.",
+      "research_ids": [
+        "fx-level-break-versus-reversal",
+        "fx-stop-loss-cascades"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
+    },
+    {
+      "id": "pdh-sweep-reversal",
+      "name": "PDH cross + return + MSS",
+      "pattern_id": "liquidity-sweep-rejection",
+      "status": "idea",
+      "specification": "Define penetration and closing back under prior-day high, then bearish MSS before entry; compare with continuation baseline.",
+      "research_ids": [
+        "fx-level-break-versus-reversal",
+        "fx-stop-loss-cascades"
+      ],
+      "instrument": null,
+      "timeframe": null,
+      "period": null,
+      "trades": null,
+      "profit_factor": null,
+      "max_drawdown_pct": null,
+      "avg_r": null,
+      "oos": null
     }
   ]
 }

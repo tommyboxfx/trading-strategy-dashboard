@@ -66,6 +66,7 @@
   .research-list p { margin: 7px 0; }
   .research-list a { color: var(--accent); overflow-wrap: anywhere; }
   .variant-list p { margin: 5px 0; font-size: 13px; }
+  .variant-list a { color: var(--accent); }
   .library-controls { margin-bottom: 12px; }
   .library-controls input { width: 100%; }
 </style>
@@ -154,7 +155,9 @@ function renderVariants() {
   const patterns = new Map(patternGroups.flatMap(g => g.patterns.map(p => [p.id, p])));
   document.getElementById('variant-list').innerHTML = variants.map(v =>
     `<article><b>${esc(v.name)}</b> <span class="tag">${esc(v.status)}</span>
-    <p>${esc(v.specification)}</p><small class="muted">Pattern: ${esc(patterns.get(v.pattern_id)?.name || v.pattern_id)} · Trades: ${fmt(v.trades, 0)} · PF: ${fmt(v.profit_factor)} · OOS: ${fmt(v.oos)}</small></article>`
+    <p>${esc(v.specification)}</p>
+    ${(v.research_ids || []).length ? `<p>Research: ${v.research_ids.map(id => `<a href="#research-${esc(id)}">${esc(id.replaceAll('-', ' '))}</a>`).join(', ')}</p>` : ''}
+    <small class="muted">Pattern: ${esc(patterns.get(v.pattern_id)?.name || v.pattern_id)} · Trades: ${fmt(v.trades, 0)} · PF: ${fmt(v.profit_factor)} · OOS: ${fmt(v.oos)}</small></article>`
   ).join('') || '<p class="muted">No variants yet.</p>';
 }
 async function loadVariants() {
@@ -171,7 +174,7 @@ async function loadResearch() {
     const r = await fetch('data/research.json?v=' + Date.now());
     if (!r.ok) throw new Error(r.status);
     const entries = (await r.json()).entries || [];
-    box.innerHTML = entries.map(x => `<article>
+    box.innerHTML = entries.map(x => `<article id="research-${esc(x.id)}">
       <h3>${esc(x.name)}</h3><span class="tag">${esc(x.status)}</span>
       <p><b>Paper:</b> <a href="${esc(x.source_url)}" target="_blank" rel="noopener noreferrer">${esc(x.source_title)}</a></p>
       <p><b>Market / period:</b> ${esc(x.market_in_paper)}</p>
