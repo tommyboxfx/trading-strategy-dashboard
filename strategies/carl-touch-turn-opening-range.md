@@ -2,7 +2,7 @@
 
 ## Forrás
 
-[This 1 Minute Scalping Strategy Works Everyday — ProRealAlgos](https://www.youtube.com/watch?v=BifyQ6ppdLU), Carl bemutatója, kb. 20 perc. A szabályok a videó angol automatikus átiratából származnak; az átiratban előfordulhatnak félrehallások. **Ez a videó Carl stratégiája, az AdrianOlajos Telegram-profilhoz való kapcsolat nincs igazolva.**
+[This 1 Minute Scalping Strategy Works Everyday — ProRealAlgos](https://www.youtube.com/watch?v=BifyQ6ppdLU), Carl bemutatója, kb. 20 perc. A szabályok a videó angol automatikus átiratából származnak; az átiratban előfordulhatnak félrehallások.
 
 ## A videóban bemutatott szabályok
 
