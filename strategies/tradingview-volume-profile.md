@@ -27,6 +27,23 @@ TradingView részvényeknél kereskedési volument, index/forex/crypto CFD-nél 
 
 **Forrásminőség:** oktató rövidvideók, saját tesztkimutatás nélkül. Az első videó végén elhangzó promóciós win-rate állítást nem tekintjük ellenőrzött eredménynek, ezért a dashboard eredménymezői üresek maradnak.
 
+## Harlan-videók következő kutatási köre (2026-09-28)
+
+Az alábbiak a [csatornán](https://www.youtube.com/@Harlan.Sterling) azonosított **videócímek**, nem ellenőrzött kereskedési szabályok. A kiválasztott rövidvideókhoz a megtekintett YouTube-oldalon nem volt elérhető felirat vagy érdemi szöveges leírás, ezért a jelzés, stop és kilépés a pontos tartalomig nyitott marad.
+
+| Téma | Videó | Miért érdekes a meglévő kutatáshoz? |
+|---|---|---|
+| VP + market structure | [Use Volume Profile with Market Structure for BEST Entries](https://www.youtube.com/watch?v=Ws9T4cJVUCk) | Sweep / MSS ág mellett külön vizsgálható. |
+| VP + AMD | [Combine VP with AMD for Precise Entries](https://www.youtube.com/watch?v=6-MgzS1eJOM) | Session-sweep és felhalmozás/manipuláció/elosztás hipotézise. |
+| VP + FVG | [How to Find the Strongest Fair Value Gap Using Volume Profile](https://www.youtube.com/watch?v=4e_CKWZHxp4) | FVG confluence összevetése a sima FVG-vel. |
+| VP + visszafordulás | [How To Predict Reversals Using Volume Profile](https://www.youtube.com/watch?v=LKFBtuwgJMw) | POC/VA rejection és áttörés összevetése. |
+| VP + irányszűrő | [This is how to determine directional bias using Volume](https://www.youtube.com/watch?v=N53mR92rYCo) | HTF bias definíciója a POC belépéshez. |
+| VP + konszolidáció | [The Hidden Entry Inside Every Consolidation](https://www.youtube.com/watch?v=lD4iNju3BHk) | Lezárt range profilból számított szintek. |
+| VP + egyszerű belépés | [Step by Step A+ Volume Profile setup](https://www.youtube.com/watch?v=QIxHc5AqFnY) | A „tiszta reakció” szabályának tisztázása. |
+| VP + egyszerű modell | [This is the Simplest Volume Profile Strategy](https://www.youtube.com/watch?v=szX8m0t748w) | Kontrollmodellnek alkalmas, ha a feltételek kinyerhetők. |
+
+A lista nem tesztelt stratégiák gyűjteménye. A további videókat csak akkor alakítjuk változattá, ha a tényleges képi/hangos tartalomból az időpontban ismert profil, az entry, a stop és az exit pontosan leírható.
+
 ## Backtest log
 
 | Dátum | Variáns | Piac / profil | Időszak | Kötések | PF | Max DD | Avg R | OOS / forward | Megjegyzés |
