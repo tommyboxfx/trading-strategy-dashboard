@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27",
+  "updated": "2026-09-28",
   "strategies": [
     {
       "id": "ny-open-liquidity-sweep",
@@ -334,6 +334,36 @@
       },
       "notes": "strategies/den-lastorangepuma-indicator-suite.md",
       "updated": "2026-09-27"
+    },
+    {
+      "id": "patrick-nill-three-touch-range",
+      "name": "Patrick Nill — 3-touch range breakout",
+      "instrument": "To be confirmed",
+      "timeframe": "To be confirmed",
+      "platform": "TradingView / MT5 research",
+      "status": "idea",
+      "priority": null,
+      "style": "Range breakout",
+      "tags": [
+        "Patrick Nill",
+        "3-touch",
+        "range",
+        "fair value",
+        "breakout"
+      ],
+      "summary": "Video description identifies fair value ranges, a 3-touch range breakout concept, entries, stops and targets; exact executable rules still require verification.",
+      "metrics": {
+        "period": "No backtest supplied",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/patrick-nill-three-touch-range.md",
+      "updated": "2026-09-28"
     }
   ]
 }
