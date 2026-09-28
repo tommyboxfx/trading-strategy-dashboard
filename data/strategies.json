@@ -364,6 +364,36 @@
       },
       "notes": "strategies/patrick-nill-three-touch-range.md",
       "updated": "2026-09-28"
+    },
+    {
+      "id": "carl-touch-turn-opening-range",
+      "name": "Carl — Touch & Turn opening range scalper",
+      "instrument": "Stocks / indices with defined market open",
+      "timeframe": "M15 opening range / M1 entry / D1 ATR",
+      "platform": "TradingView / MT5 research",
+      "status": "idea",
+      "priority": null,
+      "style": "Opening range mean reversion",
+      "tags": [
+        "opening range",
+        "ATR(14)",
+        "Fibonacci",
+        "limit entry",
+        "mean reversion"
+      ],
+      "summary": "First M15 opening candle must span at least 25% of D1 ATR(14); fade its edge using a limit order within 90 minutes, with a 38.2% range target and 2:1 reward/risk. Transcript-based research; no independent backtest.",
+      "metrics": {
+        "period": "No backtest supplied",
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/carl-touch-turn-opening-range.md",
+      "updated": "2026-09-28"
     }
   ]
 }
