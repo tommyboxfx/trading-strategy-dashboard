@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-10-03",
   "strategies": [
     {
       "id": "ny-open-liquidity-sweep",
@@ -308,9 +308,9 @@
     },
     {
       "id": "den-lastorangepuma-indicator-suite",
-      "name": "Den / LastOrangePuma — 8LIQ indicator setup",
-      "instrument": "To be confirmed",
-      "timeframe": "To be confirmed",
+      "name": "Den / LastOrangePuma — PVP POC + RSI confluence",
+      "instrument": "To be confirmed / BTC mentioned",
+      "timeframe": "M15 (B) / H1–D1 (A)",
       "platform": "TradingView",
       "status": "idea",
       "priority": null,
@@ -321,7 +321,7 @@
         "8LIQ/Golden Pocket",
         "8LIQ/PVP POC"
       ],
-      "summary": "User-identified three-indicator setup. Exact signal sequence, risk rules, script descriptions and performance are not yet verified.",
+      "summary": "User-supplied document describes two variants: POC + price/RSI divergence with candle confirmation, and M15 RSI 70/30 swing sequence followed by POC-touch entry. Parameters and independent backtests pending.",
       "metrics": {
         "period": "No backtest supplied",
         "net_profit": null,
@@ -333,7 +333,7 @@
         "avg_r": null
       },
       "notes": "strategies/den-lastorangepuma-indicator-suite.md",
-      "updated": "2026-09-27"
+      "updated": "2026-10-03"
     },
     {
       "id": "patrick-nill-three-touch-range",
