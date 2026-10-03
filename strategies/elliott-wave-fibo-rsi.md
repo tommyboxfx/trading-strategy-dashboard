@@ -145,3 +145,35 @@ Első összehasonlítás: szintklaszter önmagában → +divergencia → +sweep 
 2. **Impulzusvégi sweep/order belépő, tágabb kezdeti stoppal.** M30 divergencia, előre ismert POC-klaszter és PWH/PWL segít a végzóna kiválasztásában. A sweephez kötött order pontos típusa (limit/stop/market) még nincs kiválasztva; nem kötelező utólagos MSS-visszateszt. A tágabb stop a nagyobb túlszúrás terét adja, előre meghatározott távolsággal/invalidation szinttel. Ugyanakkora pénzbeli kockázatnál kisebb pozícióméretet jelent, nem menet közbeni korlátlan stop-tágítást.
 
 A stop-puffer tick- és ATR-alapú változata külön tesztelhető. A nagyobb stop előnyét a stopkivételek, a romló R és a nettó eredmény együtt mutatja meg; nem feltételezzük, hogy önmagában javítja a stratégiát.
+
+
+## Hasonló nyilvános módszerek — 2026-10-03
+
+A legközelebbi talált párhuzam Juan Maldonado (Elliott Wave Street). Az alábbiak szerzői módszerleírások, nem függetlenül igazolt teljesítményeredmények. A videókhoz tartozó nyilvános szöveges leírásokat vizsgáltuk; nem állítjuk, hogy minden videórészletet ellenőriztünk.
+
+### Impulzusvégi kifáradás: Elliott + divergencia + Volume Profile / VWAP
+
+[Where does the wave end?](https://www.fxstreet.com/analysis/where-does-the-wave-end-volume-profile-and-vwap-on-es-oil-and-euro-video-202609211641): Maldonado olajpéldája öt lefelé hullámot, MACD-divergenciát, csökkenő volument és VWAP-tól való eltávolodást kapcsol össze egy visszapattanás hipotéziséhez. Másik példában a korábbi profil POC-ja és az anchored VWAP közös célzónát ad. A szerző Fibo–POC–VWAP klasztert is keres, és az aktuális zónába érkezéskor újraértékeli a momentumot. Ez közeli párhuzam az impulzus végének helykereséséhez, de nem dokumentálja a konkrét M30 Den + több POC + PWH/PWL-sweep szabályrendszert.
+
+### Korrekció vége: új mélypont, de a POC nem követi
+
+[How to Find the End of a Corrective Wave Using Volume Profile](https://elliottwavestreet.com/elliott-wave/how-to-find-the-end-of-a-corrective-wave-using-volume-profile/): a lezajlott impulzust profilozza, majd külön a korrekciót. Az utóbbi profilt új mélypontnál hosszabbítja. Ha az ár új mélypontot ér el, de a POC feljebb marad, a szerző ezt a kifáradás egyik jelének tekinti, saját Volwaves szűrővel. Egy bemutatott belépő az első bullish fordulógyertya, stop a mélypont alatt; első cél az impulzusprofil POC-ja. Ez a korrekció utáni trendfolytató ághoz kapcsolható. A POC helyben maradása nem azonos RSI/Den-divergenciával, és önmagában nem bizonyít fordulatot.
+
+### Fibonacci Pinball — folytató ág
+
+[Avi Gilburt: The Basics of Fibonacci Pinball](https://www.elliottwavetrader.net/elliottwavetheory/memberlibrary/The-Basics-of-Fibonacci-Pinball-20130129224.html): az 1–2 szakasz után Fibo-vetítésekhez és támaszokhoz rendelt 3–4–5 forgatókönyv, kezdeti invalidációval a 2. hullám alatt. Hasznos párhuzam a folytató belépésekhez; nem tartalmazza a saját POC/sweep/Den kombinációt.
+
+### Order flow kifáradás / elnyelés — opcionális kiegészítés
+
+[Bookmap: Absorption & Exhaustion](https://bookmap.com/learning-center/en/supply-demand-setups/supply-demand-setups/absorption-exhaustion): az absorption passzív ajánlatokkal történő elnyelés, az exhaustion az agresszív volumen követésének elapadása. A tananyag sikertelen további árnyomást és CVD-változást is figyel. Ez külön megerősítési hipotézis lehet a végzónánál, megfelelő adatokkal; nem Elliott-rendszer és nem azonos az oszcillátoros divergenciával.
+
+### Átvehető kutatási kérdések
+
+- A korrekció új szélsőértéke közben mozdul-e vele a POC? Előre rögzített profilhorgony, felbontás és adatforrás szükséges.
+- A végzóna elérésekor gyengül-e a momentum, és van-e elutasítás vagy sikertelen folytatás?
+- A POC a belépési konfluencia része vagy a fordulat utáni cél? Ezek külön szerepek.
+- A Volume Profile nem mutatja közvetlenül a stopmegbízásokat. Forex tickvolume, tőzsdei kötésvolumen és bid/ask order flow eltérő adatok. A források marketingállításait nem tekintjük bizonyított összefüggésnek.
+
+### Szelektivitás: ritka, erős együttállások
+
+A cél kevés, előre meghatározott feltételeket teljesítő belépő; akár évi körülbelül 20 kötés is elfogadható. Ez preferencia, nem kötésszám-kvóta vagy hozamígéret. A feltételeket nem lazítjuk azért, hogy legyen trade. Kevés kötésből lassan gyűlik megbízható eredmény; a konfluenciák száma helyett az egyes feltételek külön többletét is vizsgáljuk. A konkrét saját kombináció nyilvánosan ellenőrizhető teljes másolatát ebben a kutatásban nem találtuk.
