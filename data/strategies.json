@@ -170,7 +170,7 @@
         "Fibonacci",
         "RSI"
       ],
-      "summary": "ZigZag wave structure with Fibonacci retracement/extension and optional RSI confirmation; assess standalone and sweep-context variants.",
+      "summary": "Two research directions: enter after impulse corrections, or capture impulse exhaustion at Fibonacci/POC clusters and prior-week sweeps with M30 divergence and a wider predefined initial stop. Full wave-degree counting is optional; order and stop parameters await tests.",
       "metrics": {
         "period": "Backtest data pending",
         "net_profit": null,
@@ -182,7 +182,7 @@
         "avg_r": null
       },
       "notes": "strategies/elliott-wave-fibo-rsi.md",
-      "updated": "2026-09-27"
+      "updated": "2026-10-03"
     },
     {
       "id": "pattern-research",
