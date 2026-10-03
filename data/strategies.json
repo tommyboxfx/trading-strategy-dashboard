@@ -397,6 +397,37 @@
       },
       "notes": "strategies/carl-touch-turn-opening-range.md",
       "updated": "2026-09-28"
+    },
+    {
+      "id": "market-regime-research",
+      "name": "Piaci rezsimváltás — felismerés és stratégiaválasztás",
+      "instrument": "Multi / XAUUSD / FX / Indices / BTCUSD",
+      "timeframe": "HTF context / M5–M15 execution (research)",
+      "platform": "MT4 / MT5 / TradingView",
+      "status": "idea",
+      "priority": null,
+      "style": "Research / Strategy filter",
+      "tags": [
+        "regime",
+        "volatility",
+        "liquidity",
+        "trend",
+        "range",
+        "risk"
+      ],
+      "summary": "Regime-change causes and separate directionality, volatility and execution-cost signals. Research filter for sweep reversals, Elliott continuation and ICT FVG/BPR; no verified thresholds or performance results.",
+      "metrics": {
+        "period": null,
+        "net_profit": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "max_drawdown_pct": null,
+        "trades": null,
+        "recovery_factor": null,
+        "avg_r": null
+      },
+      "notes": "strategies/market-regime-research.md",
+      "updated": "2026-10-03"
     }
   ]
 }
