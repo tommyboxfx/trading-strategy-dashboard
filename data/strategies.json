@@ -125,7 +125,7 @@
     },
     {
       "id": "ict-confluence-sweep",
-      "name": "ICT Sweep + MSS + FVG / OB Confluence",
+      "name": "ICT Strategies — Sweep / FVG / BPR / Silver Bullet",
       "instrument": "Multi",
       "timeframe": "M1–M15 entry / HTF context",
       "platform": "MT4 / MT5",
@@ -139,9 +139,12 @@
         "FVG",
         "Order Block",
         "OTE",
-        "Killzone"
+        "Killzone",
+        "BPR",
+        "Silver Bullet",
+        "SMT"
       ],
-      "summary": "Research family combining liquidity sweep with displacement/MSS, then FVG or valid Order Block retracement and optional killzone/OTE/SMT filters.",
+      "summary": "Dedicated ICT research section: sweep + displacement/MSS + FVG, opposing-FVG BPR overlap and first retest, Silver Bullet time windows and OTE/OB variants. Entry, stop, target and invalidation specifications; user BPR video linked, full content unverified.",
       "metrics": {
         "period": "Research / variants pending",
         "net_profit": null,
@@ -153,7 +156,7 @@
         "avg_r": null
       },
       "notes": "strategies/ict-confluence-sweep.md",
-      "updated": "2026-09-27"
+      "updated": "2026-10-03"
     },
     {
       "id": "elliott-wave-fibo-rsi",
